@@ -12,3 +12,20 @@ type TabValue = {
   name: string;
   onPress: () => void;
 };
+
+type TabRoute = {
+  tab: string;
+  route: string;
+};
+type RouteVal = {
+  name: string;
+};
+type RListener = {
+  state: {
+    stale: boolean;
+    type: string;
+    key: string;
+    index: number;
+    routeNames: List<string>;
+  };
+};
