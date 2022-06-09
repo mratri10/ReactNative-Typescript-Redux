@@ -1,26 +1,16 @@
 import {HOMETAB, PROFILETAB, ROUTE, SCANTAB} from '../../constants';
 
-const initState: TabRoute = {
-  tab: HOMETAB,
-  route: '',
-};
+const initState: string = HOMETAB;
 
-export default (state: TabRoute = initState, action: ReduxAction) => {
+export default (state: string = initState, action: ReduxAction) => {
   switch (action.type) {
     case HOMETAB:
     case PROFILETAB:
     case SCANTAB:
-      return {
-        ...state,
-        tab: action.type,
-      };
+      return action.type;
 
     case ROUTE:
-      const val = <RouteVal>action.payload;
-      return {
-        ...state,
-        route: val.name,
-      };
+      return action.payload;
     default:
       return state;
   }

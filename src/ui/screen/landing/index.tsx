@@ -17,14 +17,14 @@ import {tabAction} from '../../../redux/actions';
 import {ApplicationState} from '../../../redux/reducers';
 function LandingScreen() {
   const dispatch: Dispatch<any> = useDispatch();
-  const tab: TabRoute = useSelector(
+  const tab: string = useSelector(
     (state: ApplicationState) => state.tabReducer,
   );
 
   return (
     <View style={{flex: 1}}>
-      <TabScreen tab={tab.tab} />
-      <Text>{tab.tab}</Text>
+      <TabScreen tab={tab} />
+      <Text>{tab}</Text>
       <View
         style={{
           flexDirection: 'row',
@@ -32,17 +32,17 @@ function LandingScreen() {
         }}>
         <TabWidget
           name="Home"
-          active={tab.tab == HOMETAB}
+          active={tab == HOMETAB}
           onPress={() => dispatch(tabAction(HOMETAB))}
         />
         <TabWidget
           name="Scan"
-          active={tab.tab == SCANTAB}
+          active={tab == SCANTAB}
           onPress={() => dispatch(tabAction(SCANTAB))}
         />
         <TabWidget
           name="Profil"
-          active={tab.tab == PROFILETAB}
+          active={tab == PROFILETAB}
           onPress={() => dispatch(tabAction(PROFILETAB))}
         />
       </View>
