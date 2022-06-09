@@ -13,13 +13,6 @@ type TabValue = {
   onPress: () => void;
 };
 
-type TabRoute = {
-  tab: string;
-  route: string;
-};
-type RouteVal = {
-  name: string;
-};
 type RListener = {
   state: {
     stale: boolean;
