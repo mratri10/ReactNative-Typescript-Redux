@@ -1,5 +1,16 @@
 export type RootStackParamList = {
   splash: undefined;
-  landing: {name: string};
+  landing: undefined;
   checkout: undefined;
+  edit_profile: undefined;
+  camera: {id: number};
 };
+
+export enum TypeInput {
+  TEXT,
+  CHECKBOX_HORIZONTAL,
+  EMAIL,
+  PASSWORD,
+  CHECKLIST,
+  NUMBER,
+}

@@ -5,6 +5,8 @@ import {Alert, BackHandler} from 'react-native';
 import CheckoutScreen from './ui/screen/checkout';
 import LandingScreen from './ui/screen/landing';
 import SplashScreen from './ui/screen/splashScreen';
+import EditProfileScreen from './ui/screen/editProfile';
+import CameraApp from './ui/screen/CameraApp';
 
 function Telehealth() {
   const Stack = createNativeStackNavigator();
@@ -52,6 +54,20 @@ function Telehealth() {
             options={{headerShown: false}}
           />
           <Stack.Screen name="checkout" component={CheckoutScreen} />
+          <Stack.Screen
+            name="edit_profile"
+            component={EditProfileScreen}
+            options={{
+              title: 'Edit Profile',
+            }}
+          />
+          <Stack.Screen
+            name="camera"
+            component={CameraApp}
+            options={{
+              headerShown: false,
+            }}
+          />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
