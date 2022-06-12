@@ -13,3 +13,8 @@ type DataCH = {
   id: number;
   value: string;
 };
+
+type UriData = {
+  title: string;
+  uri: string;
+};

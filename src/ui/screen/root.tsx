@@ -3,7 +3,7 @@ export type RootStackParamList = {
   landing: undefined;
   checkout: undefined;
   edit_profile: undefined;
-  camera: {id: number};
+  camera: undefined;
 };
 
 export enum TypeInput {

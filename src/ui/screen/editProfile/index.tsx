@@ -4,12 +4,14 @@ import * as React from 'react';
 import {useForm} from 'react-hook-form';
 import {
   FlatList,
+  Image,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useSelector} from 'react-redux';
+import IconF5 from 'react-native-vector-icons/FontAwesome5';
 import {
   EMAILVALIDATION,
   PHONEVALIDATION,
@@ -18,14 +20,20 @@ import {
 } from '../../../constants';
 import InputApp from '../../widget/InputApp';
 import {RootStackParamList, TypeInput} from '../root';
+import {ApplicationState} from '../../../redux/reducers';
 
 type prop = NativeStackNavigationProp<RootStackParamList, 'edit_profile'>;
 function EditProfileScreen() {
   const navigation = useNavigation<prop>();
   const {control, handleSubmit, register} = useForm();
+  const uriData: UriData = useSelector(
+    (state: ApplicationState) => state.cameraReducer,
+  );
   const onSubmit = (v: any) => {
     console.log(JSON.stringify(v));
   };
+
+  React.useEffect(() => {}, [uriData]);
   return (
     <View style={[styleProfile.backgroundApp]}>
       <FlatList
@@ -36,13 +44,29 @@ function EditProfileScreen() {
             <TouchableOpacity onPress={() => navigation.navigate('camera')}>
               <View
                 style={{
-                  height: 60,
-                  width: 60,
-                  borderRadius: 30,
-                  backgroundColor: 'grey',
                   justifyContent: 'center',
+                  alignItems: 'center',
                 }}>
-                {/* <CameraApp /> */}
+                <View
+                  style={{
+                    padding: 20,
+                    backgroundColor: 'white',
+                    borderRadius: 10,
+                    marginBottom: 20,
+                  }}>
+                  {uriData.uri.length > 0 ? (
+                    <Image
+                      source={{uri: uriData.uri}}
+                      style={{
+                        height: 90,
+                        width: 90,
+                        borderRadius: 45,
+                      }}
+                    />
+                  ) : (
+                    <IconF5 name="camera" size={50} />
+                  )}
+                </View>
               </View>
             </TouchableOpacity>
 

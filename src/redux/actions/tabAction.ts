@@ -7,12 +7,3 @@ export const tabAction = (tab: string) => {
     });
   };
 };
-
-export const routeAction = (route: string) => {
-  return async (dispacth: DispatchType, getState: any) => {
-    dispacth({
-      type: ROUTE,
-      payload: <RouteVal>{name: route},
-    });
-  };
-};

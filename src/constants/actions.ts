@@ -3,6 +3,8 @@ export const PROFILETAB = 'PROFILETAB';
 export const SCANTAB = 'SCANTAB';
 export const ROUTE = 'ROUTE';
 
+export const GETCAMERAURI = 'GETCAMERAURI';
+
 //Validation
 
 export const NAMAVALIDATION = {
